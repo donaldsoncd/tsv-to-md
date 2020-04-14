@@ -1,5 +1,5 @@
 # tsv-to-md
-A python script to convert a tab-separated value (tsv) file to a markdown text file in a prose-like format.
+A python script to convert a tab-separated value (tsv) file of an aligned parallel text to a markdown text file in a prose-like format.
 
 It is the counterpart to [md-to-tsv](https://github.com/donaldsoncd/md-to-tsv), which converts in the opposite direction.
 
@@ -22,12 +22,13 @@ It is the counterpart to [md-to-tsv](https://github.com/donaldsoncd/md-to-tsv), 
 Input file notes:
 
 - The input file must be a tab-separated value file
-- The first row must be a series of headers
-- The first column must be identifiers for the segments
+- The first row must be a series of headers (e.g., _ID --> Arabic --> Soninke --> English_)
+- The first column must be **identifiers** for the segments
+- The TSV can have as many columns as you want
 
 Output file notes:
 
-- Identifiers become level three markdown headers via three hashtag marks (`###`)
+- **Identifiers** become level three markdown headers via three hashtag marks (`###`)
 - Language segments become markdown paragraphs (that is, with an empty line between them)
 
 ## Ajami Lab Use
@@ -40,9 +41,9 @@ From this perspective, the Tropy project is the single or master "source code" f
 
 ## Screenshots
 
-For from this:
+Go from something like this:
 
-<img width="598" alt="tabbed" src="https://user-images.githubusercontent.com/28364193/79261297-ea076e00-7e8f-11ea-9c36-1303c93b467b.png">
+<img width="598" alt="tabbed" src="https://user-images.githubusercontent.com/28364193/79261297-ea076e00-7e8f-11ea-9c36-1303c93b467b.png">o 
 
 To this:
 
