@@ -30,7 +30,7 @@ Output file notes:
 
 ## Ajami Lab Use
 
-This script was designed to facilitate the conversion of [Ajami annotation data extracted from a Tropy project](https://ajami.hypotheses.org/598) into a format conducive to prose-like publication (as a critical edition style chapter, appendix, etc).
+This script was designed in the context of the [Ajami Lab](https://ajami.hypotheses.org/) to facilitate the conversion of [Ajami annotation data extracted from a Tropy project](https://ajami.hypotheses.org/598) into a format conducive to prose-like publication (as a critical edition style chapter, appendix, etc).
 
 Once a TSV is put into markdown format, it can easily be edited further using [pandoc](https://pandoc.org/) flavored markdown that allows for footnotes, etc., and then easily exported as a static html page or common word-processing file for Word, LibreOffice, etc.
 
