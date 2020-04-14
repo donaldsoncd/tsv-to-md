@@ -1,6 +1,8 @@
 # tsv-to-md
 A script to convert a tab-separated value (tsv) file to a markdown text file in a prose-like format.
 
+It is the counterpart to [md-to-tsv](https://github.com/donaldsoncd/md-to-tsv), which converts in the opposite direction.
+
 ## Instructions
 
 - Download the python script `to-md.py`
