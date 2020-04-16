@@ -159,45 +159,22 @@ with open(filename, 'r') as inputFile:
         # Otherwise process the lines
         else:
             
-            # Loop through the characters of a line
-            for char in line:
-                # If we are in the id column and it has no markdown pounds
-                if (isID == 1 and hasPounds == 0):
-                    # Write the initial markdown header syntax
-                    output += "### "
-                    output += char
-                    # Mark that we have written the pound symbols
-                    hasPounds = 1
-                    
-                # If we hit a tab and are in the ID column
-                elif (hasPounds == 1 and char == "\t" and isID == 1):
-                    # Skip down two lines
-                    output += "\n\n"
-                    # And note that we are no longer in the ID column
-                    isID = 0
-                
-                # If we are in the id column and it HAS markdown pounds
-                elif (isID == 1 and hasPounds == 1):
-                    # Write out the character
-                    output += char
-                    
-                # If we hit a tab and are not in the ID column
-                elif (char == "\t" and isID == 0):
-                    # Skip down two lines
-                    output += "\n\n"
-                    isID = 0
-                    
-                # If we hit a new line and are not in the ID column
-                elif (char == "\n" and isID == 0):
-                    # Skip down two line and add a markdown header marker
-                    output += "\n\n"
-                    # Mark that we are now in the ID column and that it has no poundsigns
-                    isID = 1
-                    hasPounds = 0
+            # Split the line on the tab character to build a list of the columns
+            split_line = line.split('\t')
             
-                # Otherwise write the characters to output
-                else:
-                    output += char
+            # If the split line is less than two items
+            if len(split_line) < 2:
+                # Raise an error since that means there's not enough columns
+                raise Exception("Line " + line_number + " doesn't have enough columns.")
+            
+            # Write the markdown header
+            output += "### " + split_line[0] + "\n\n"
+            
+            # Write the language lines. The last one needs one less new line.
+            for lang in split_line[1:-1]:
+                output += lang + "\n\n"
+            for lang in split_line[-1:]:
+                output += lang + "\n"
                     
     # Try to save the file
     save_to_file(output, filename)
